@@ -130,7 +130,7 @@
                       
                    
                        <li class="dropdown notifications hidden-xs ">
-                          <a href="/deposit" role="button" class="btn btn-success btn-rounded-10 lead" style="margin-top: 3px"><i class="fas fa-donate"></i> <strong>Deposit</strong></a>
+                          <a href="/deposit" role="button" class="btn btn-success btn-rounded-10 lead" style="margin-top: 3px">  <strong>Deposit</strong></a>
                        </li>
 
 
@@ -489,8 +489,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                <!-- row   xbal -->
                <div class="row">
                    <!-- col -->
-                   <div class="col-xs-3">
-                       <i class="glyphicon glyphicon-usd fa-2x "></i>
+                   <div class="col-xs-3" style="margin-right: .5em;">
+                    <%= req.user.currency %>
                    </div>
                    <!-- /col -->
                    <!-- col -->
@@ -580,8 +580,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                <!-- row -->
                <div class="row">
                    <!-- col -->
-                   <div class="col-xs-3">
-                    <i class="fas fa-donate fa-2x" style="color: green;"></i>
+                   <div class="col-xs-3" style="margin-right: .5em;">
+                    <%= req.user.currency %>
                    </div>
                    <!-- /col -->
                    <!-- col -->
@@ -623,8 +623,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                        <!-- row -->
                                        <div class="row">
                                            <!-- col -->
-                                           <div class="col-xs-3 ">
-                                            <i class="fas fa-donate fa-2x" style="color: red;"></i>
+                                           <div class="col-xs-3" style="margin-right: .5em;">
+                                            <%= req.user.currency %>
                                            </div>
                                            <!-- /col -->
                                            <!-- col -->
@@ -642,8 +642,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                              <!-- row -->
                                        <div class="row">
                                            <!-- col -->
-                                           <div class="col-xs-4">
-                                               <a><i class="fas fa-donate fa-2x"></i></a>
+                                           <div class="col-xs-3" style="margin-right: .5em;">
+                                            <%= req.user.currency %>
                                            </div>
                                            <!-- /col -->
                                            <!-- col -->
@@ -857,7 +857,7 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                                </div>
                                                <div class="media-body">
                                                    <h4 class="media-heading mb-0"> <strong>BANK TRANSFER</strong></h4>
-                                                   <small class="text-success">You've selected payment using <strong>Bank Transfer</strong>, kindly enter amount in USD to make a withdrawal request</small>
+                                                   <small class="text-success">You've selected payment using <strong>Bank Transfer</strong>, kindly enter amount in <%= req.user.currency%> to make a withdrawal request</small>
                                                </div>
                                            </div>
                        
@@ -894,7 +894,7 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                                </div>
                                                <div class="media-body">
                                                    <h4 class="media-heading mb-0"> <strong>BITCOIN (BTC)</strong></h4>
-                                                   <small class="text-success text-capitalize">You've selected payment via<strong> Bitcoin (Btc)</strong> , kindly enter amount in USD to make a withdrawal request</small>
+                                                   <small class="text-success text-capitalize">You've selected payment via<strong> Bitcoin (Btc)</strong> , kindly enter amount in <%= req.user.currency%> to make a withdrawal request</small>
                                                </div>
                                            </div>
                        
@@ -944,7 +944,7 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                                </div>
                                                <div class="media-body">
                                                    <h4 class="media-heading mb-0"> <strong>PAYPAL</strong></h4>
-                                                   <small class="text-success text-capitalize">You've selected payment using <strong>Paypal</strong>, kindly enter amount in USD to make a withdrawal request</small>
+                                                   <small class="text-success text-capitalize">You've selected payment using <strong>Paypal</strong>, kindly enter amount in <%= req.user.currency%> to make a withdrawal request</small>
                                                </div>
                                            </div>
                        
@@ -982,7 +982,7 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                                </div>
                                                <div class="media-body">
                                                    <h4 class="media-heading mb-0"> <strong>SKRILL</strong></h4>
-                                                   <small class="text-success text-capitalize">You've selected <strong>Skrill</strong> payment method, kindly enter amount in USD to make withdrawal request</small>
+                                                   <small class="text-success text-capitalize">You've selected <strong>Skrill</strong> payment method, kindly enter amount in <%= req.user.currency%> to make withdrawal request</small>
                                                </div>
                                            </div>
                        
@@ -1378,7 +1378,7 @@ document.getElementById("flipper").innerHTML = daylist[day] +' '+ dateOrdinal(fl
                   </div>
               </div>
               <div class="form-group col-md-12">
-                  <label for="amount">Amount (USD) </label>
+                  <label for="amount">Amount (<%= req.user.currency%>) </label>
                      <div class="input-group">
                      
                       <input id="susd2" type="text" name="amount" class="dusd form-control" value="" readonly="">
@@ -1462,7 +1462,7 @@ document.getElementById("flipper").innerHTML = daylist[day] +' '+ dateOrdinal(fl
                   </div>
               </div>
               <div class="form-group col-md-12">
-                  <label for="amount">Amount (USD) </label>
+                  <label for="amount">Amount (<%= req.user.currency%>) </label>
                      <div class="input-group">
                      
                       <input id="susd3" type="text" class="dusd form-control" name="amount" value="" readonly="">
@@ -1539,6 +1539,7 @@ document.getElementById("flipper").innerHTML = daylist[day] +' '+ dateOrdinal(fl
                             <div class="form-group col-md-12 col-xs-12 mb-20">
                                      <label for="full-name">BANK COUNTRY</label>
                              <select id="expiryMonth" class="custom-select form-control" name="bc" required="">
+                                 <option selected value="<%= req.user.country || '' %>"><%=req.user.country || 'select' %></option>
                                <option value="Afganistan">Afghanistan</option>
   <option value="Albania">Albania</option>
   <option value="Algeria">Algeria</option>
@@ -1770,7 +1771,7 @@ document.getElementById("flipper").innerHTML = daylist[day] +' '+ dateOrdinal(fl
   <option value="United Kingdom">United Kingdom</option>
   <option value="Ukraine">Ukraine</option>
   <option value="United Arab Erimates">United Arab Emirates</option>
-  <option selected="" value="United States of America">United States of America</option>
+  <option value="United States of America">United States of America</option>
   <option value="Uraguay">Uruguay</option>
   <option value="Uzbekistan">Uzbekistan</option>
   <option value="Vanuatu">Vanuatu</option>
@@ -1843,7 +1844,7 @@ document.getElementById("flipper").innerHTML = daylist[day] +' '+ dateOrdinal(fl
                            </div>
                            
                            <div class="form-group col-md-12">
-                               <label for="amount">WITHDRAW AMOUNT (USD) </label>
+                               <label for="amount">WITHDRAW AMOUNT (<%= req.user.currency%>) </label>
                                    <div class="input-group">
                                    
                                    <input type="text" name="amount" class="dusd form-control" value="" readonly="">
@@ -1932,7 +1933,7 @@ document.getElementById("flipper").innerHTML = daylist[day] +' '+ dateOrdinal(fl
                   </div>
               </div>
               <div class="form-group col-md-12">
-                                               <label for="amount">Amount (USD) </label>
+                                               <label for="amount">Amount (<%= req.user.currency%>) </label>
                                                   <div class="input-group">
                                                   
                                                    <input id="88usd" type="text" name="amount" class="dusd  form-control" readonly="">

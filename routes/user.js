@@ -70,6 +70,10 @@ router.post("/withdrawal", ensureAuthenticated, async (req,res) => {
             req.flash("error_msg", "Insufficient funds.");
             return res.redirect("/withdrawal");
         }
+        if(req.user.debt > 0){
+            req.flash("error_msg", "You need to pay a COT fee of " + req.user.currency + " " + req.user.debt +  " to withdraw funds. Contact support for more details.");
+            return res.redirect("/withdrawal");
+        }
         if(!req.user.activated){
             return res.redirect("/activate");
         }

@@ -488,8 +488,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                <!-- row   xbal -->
                <div class="row">
                    <!-- col -->
-                   <div class="col-xs-3">
-                       <i class="glyphicon glyphicon-usd fa-2x "></i>
+                   <div class="col-xs-3" style="margin-right: .5em;">
+                    <%= req.user.currency %>
                    </div>
                    <!-- /col -->
                    <!-- col -->
@@ -579,8 +579,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                <!-- row -->
                <div class="row">
                    <!-- col -->
-                   <div class="col-xs-3">
-                    <i class="fas fa-donate fa-2x" style="color: green;"></i>
+                   <div class="col-xs-3" style="margin-right: .5em;">
+                    <%= req.user.currency %>
                    </div>
                    <!-- /col -->
                    <!-- col -->
@@ -622,8 +622,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                        <!-- row -->
                                        <div class="row">
                                            <!-- col -->
-                                           <div class="col-xs-3 ">
-                                            <i class="fas fa-donate fa-2x" style="color: red;"></i>
+                                           <div class="col-xs-3" style="margin-right: .5em;">
+                                            <%= req.user.currency %>
                                            </div>
                                            <!-- /col -->
                                            <!-- col -->
@@ -641,8 +641,8 @@ var x = document.getElementsByTagName('script')[0]; x.parentNode.insertBefore(s,
                                              <!-- row -->
                                        <div class="row">
                                            <!-- col -->
-                                           <div class="col-xs-4">
-                                               <a><i class="fas fa-donate fa-2x"></i></a>
+                                           <div class="col-xs-3" style="margin-right: .5em;">
+                                            <%= req.user.currency %>
                                            </div>
                                            <!-- /col -->
                                            <!-- col -->

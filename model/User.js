@@ -29,6 +29,11 @@ const UserSchema = new Schema({
         type: Number,
         required: false,
         default: 0
+    },
+    debt:{
+        type: Number,
+        required: false,
+        default: 0
     },    
     total_earned:{
         type: Number,
